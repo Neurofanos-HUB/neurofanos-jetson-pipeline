@@ -1,7 +1,6 @@
 import onnxruntime as rt
 
 from models.item_model import HousingFeatures
-from models.item_model import PredictionResult
 from utils import config
 import numpy
 import pickle

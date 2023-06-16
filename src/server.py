@@ -2,13 +2,12 @@ import os
 import logging.config
 from typing import Dict, Any
 
-from fastapi import FastAPI, status, Response
+from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
 import onnxruntime as rt
 
 from models.item_model import HousingFeatures
-from models.item_model import PredictionResult
 from utils import config, predictFunc
 
 logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
