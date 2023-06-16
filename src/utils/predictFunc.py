@@ -15,7 +15,7 @@ with open('ml_pipelines/features.pickle','rb') as f:
     print("features:",feature)
 
 
-def predict(data: HousingFeatures) -> PredictionResult:
+def predict(data: HousingFeatures):
    try:
         # Extract data in correct order
         data_dict = data.dict()
@@ -24,7 +24,6 @@ def predict(data: HousingFeatures) -> PredictionResult:
         # dict to array
         
         to_predict = numpy.array(to_predict).reshape(1,-1)
-        print("array:",to_predict)
         pred_onx = session.run([], {first_input_name: to_predict.astype(numpy.float32)})[0]
         return {"prediction":float(pred_onx[0])}
    except:
