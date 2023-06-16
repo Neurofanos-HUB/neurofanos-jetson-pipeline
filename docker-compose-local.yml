@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  rest_ml:
+    container_name: rest_ml
+    build:
+      context: ./docker
+      dockerfile: ./Dockerfile-local
+    image: rest_ml:latest
+    env_file: .env
+    volumes:
+      - ./src:/ml_app
+    networks:
+      - rest_ml
+    labels:
+      service: "rest_ml"
+    ports:
+      - 80:80
+    command: ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "80", "--reload-dir", "/ml_app", "--reload"]
+
+networks:
+  rest_ml:
