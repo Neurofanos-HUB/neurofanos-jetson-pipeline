@@ -30,7 +30,7 @@ label_name = sess.get_outputs()[0].name
 
 @app.get('/health')
 async def health_check():
-    content = {'Server status': 'Ok'}   
+    content = {'Server status': 'Ok'}
 
     return JSONResponse(content=content)
 

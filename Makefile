@@ -27,5 +27,5 @@ clean:
 		@rm -rf .pytest_cache
 
 lint:
-		@python3 -m flake8 --max-line-length 120 ./src
-		@python3 -m mypy --no-warn-no-return --ignore-missing-imports ./src
+		@python -m flake8 --max-line-length 120 ./src
+		@python -m mypy --no-warn-no-return --ignore-missing-imports ./src

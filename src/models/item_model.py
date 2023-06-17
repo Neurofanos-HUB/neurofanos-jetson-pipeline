@@ -1,7 +1,5 @@
 from pydantic import BaseModel
 
-import numpy as np
-
 
 class HousingFeatures(BaseModel):
     CRIM: float
