@@ -31,3 +31,16 @@ jobs:
                   file: ./docker/Dockerfile
                   push: true
                   tags: tonycui02/neurofanos-ml-deployment:v1
+
+            - name: Build and Export
+              uses: docker/build-push-action@v4
+              with:
+                  file: ./docker/Dockerfile
+                  tags: tonycui02/neurofanos-ml-deployment:v1
+                  outputs: type=docker,dest=/tmp/myimage.tar
+            
+            - name: Upload artifact
+              uses: actions/upload-artifact@v3
+              with: 
+                  name: neurofanos-ml-deployment
+                  path: /tmp/myimage.tar
